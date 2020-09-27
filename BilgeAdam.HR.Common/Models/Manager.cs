@@ -12,6 +12,7 @@ namespace BilgeAdam.HR.Common.Models
         public decimal Salary { get; set; }
 
         public Person ReportsTo { get; set; }
+        public Department Department { get; set; }
 
         public void SetEmployees(params Person[] employees)
         {
