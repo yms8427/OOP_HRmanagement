@@ -1,4 +1,6 @@
-﻿namespace BilgeAdam.HR.Common.Abstractions
+﻿using BilgeAdam.HR.Common.Enums;
+
+namespace BilgeAdam.HR.Common.Abstractions
 {
     public interface IManager
     {

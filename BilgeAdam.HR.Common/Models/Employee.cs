@@ -4,11 +4,12 @@ namespace BilgeAdam.HR.Common.Models
 {
     public class Employee : Person, IPermanentEmployee
     {
+        private Person reportsTo;
         public Employee(string firstName, string lastName) : base(firstName, lastName)
         {
         }
 
-        public Person ReportsTo { get; set; }
+        public Person ReportsTo { get { return reportsTo; } }
 
         public decimal Salary { get; set; }
 
@@ -16,7 +17,7 @@ namespace BilgeAdam.HR.Common.Models
         {
             if (manager is Person m)
             {
-                ReportsTo = m;
+                reportsTo = m;
             }
         }
     }

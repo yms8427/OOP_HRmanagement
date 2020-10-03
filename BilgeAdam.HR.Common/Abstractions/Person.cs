@@ -2,11 +2,11 @@
 
 namespace BilgeAdam.HR.Common.Abstractions
 {
-    public class Person
+    public abstract class Person
     {
         public Person(string firstName, string lastName)
         {
-            Id = 1; // TODO: handle
+            Id = IdentityManager.GetNext();
             FirstName = firstName;
             LastName = lastName;
         }
@@ -17,5 +17,10 @@ namespace BilgeAdam.HR.Common.Abstractions
         public DateTime HireDate { get; set; }
         public string Mail { get; set; }
         public string Phone { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id} - {FirstName} {LastName} ({this.GetType().Name})";
+        }
     }
 }

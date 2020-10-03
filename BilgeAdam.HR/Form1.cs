@@ -1,13 +1,6 @@
-﻿using BilgeAdam.HR.Common.Abstractions;
+﻿using BilgeAdam.HR.Common.Enums;
 using BilgeAdam.HR.Common.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BilgeAdam.HR
@@ -21,8 +14,8 @@ namespace BilgeAdam.HR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var intern1 = new Intern("Buse", "Kara");
-            var intern2 = new Intern("Simge", "Demircioğlu");
+            var intern1 = new Intern("Buse", "Kara") { LastWorkingDate = DateTime.Now.AddDays(21) };
+            var intern2 = new Intern("Simge", "Demircioğlu") { LastWorkingDate = DateTime.Now.AddDays(21) };
 
             var ma1 = new Manager("Sergen", "Kahraman") { Department = Department.Finance };
             var ma2 = new Manager("Laden", "Akgök") { Department = Department.HR };
@@ -34,8 +27,23 @@ namespace BilgeAdam.HR
             var em4 = new Employee("Dilara", "İşcanoğlu");
             var em5 = new Employee("Elif", "Yücel");
 
+            if (!string.IsNullOrEmpty(em5.LastName))
+            {
+
+            }
+
             ma1.SetEmployees(em2, em4);
             ma2.SetEmployees(em3, em5);
+
+            listBox1.Items.Add(intern1);
+            listBox1.Items.Add(intern2);
+            listBox1.Items.Add(ma1);
+            listBox1.Items.Add(ma2);
+            listBox1.Items.Add(em1);
+            listBox1.Items.Add(em2);
+            listBox1.Items.Add(em3);
+            listBox1.Items.Add(em4);
+            listBox1.Items.Add(em5);
         }
     }
 }

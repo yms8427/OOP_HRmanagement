@@ -1,9 +1,11 @@
 ﻿using BilgeAdam.HR.Common.Abstractions;
+using BilgeAdam.HR.Common.Enums;
 
 namespace BilgeAdam.HR.Common.Models
 {
     public class Manager : Person, IPermanentEmployee, IManager
     {
+        private Person reportsTo;
         public Manager(string firstName, string lastName) : base(firstName, lastName)
         {
 
@@ -11,7 +13,7 @@ namespace BilgeAdam.HR.Common.Models
 
         public decimal Salary { get; set; }
 
-        public Person ReportsTo { get; set; }
+        public Person ReportsTo { get { return reportsTo; } }
         public Department Department { get; set; }
 
         public void SetEmployees(params Person[] employees)
@@ -29,7 +31,7 @@ namespace BilgeAdam.HR.Common.Models
         {
             if (manager is Person m)
             {
-                ReportsTo = m;
+                reportsTo = m;
             }
         }
     }
